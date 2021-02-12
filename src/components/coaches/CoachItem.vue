@@ -33,7 +33,7 @@ export default {
       return '/coaches/' + this.id + '/contact';
     },
     coachDetails() {
-      return '/contact/' + this.id;
+      return '/coaches/' + this.id;
     }
   }
 };
