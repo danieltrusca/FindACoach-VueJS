@@ -49,4 +49,9 @@ ul {
 h3 {
   text-align: center;
 }
+
+p {
+  text-align: center;
+  font-weight: 700;
+}
 </style>
