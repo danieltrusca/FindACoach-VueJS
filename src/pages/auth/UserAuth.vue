@@ -73,6 +73,18 @@ export default {
         this.formIsValid = false;
         return;
       }
+
+      const actionPayload = {
+        email: this.email,
+        password: this.password
+      };
+
+      //http requests
+      if (this.mode === 'login') {
+        //
+      } else {
+        this.$store.dispatch('signup', actionPayload);
+      }
     },
     switchAuthMode() {
       if (this.mode === 'login') {
