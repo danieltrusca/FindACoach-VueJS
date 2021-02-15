@@ -11,3 +11,9 @@
     }
   }
 }
+
+
+
+-link where you can documentate more about firebase auth:
+https://firebase.google.com/docs/reference/rest/auth
+
