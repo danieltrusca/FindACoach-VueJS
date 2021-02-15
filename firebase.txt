@@ -1,0 +1,13 @@
+-change the rules in firebase to prepare some routes where you need authentication to use them
+-new rules: {
+  "rules": {
+    "coaches": {
+      ".read":true,
+      ".write": "auth!=null"
+    },
+    "requests": {
+      ".read":"auth!=null",
+      ".write": true
+    }
+  }
+}
