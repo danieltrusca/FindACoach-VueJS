@@ -1,43 +1,45 @@
 <template>
-  <base-dialog :show="!!error" title="An error occured" @close="handleError">
-    <p>{{ error }}</p>
-  </base-dialog>
-  <section>
-    <coach-filter @change-filter="setFilters"></coach-filter>
-  </section>
-  <section>
-    <base-card>
-      <div class="controls">
-        <!-- <button>Refresh</button> -->
-        <base-button mode="outline" @click="loadCoaches(true)"
-          >Refresh</base-button
-        >
-        <!-- <router-link to="register">Register as Coach</router-link> -->
-        <base-button link to="/register" v-if="!isCoach && !isLoading"
-          >Register as Coach</base-button
-        >
-      </div>
-      <div v-if="isLoading">
-        <base-spinner></base-spinner>
-      </div>
-      <ul v-else-if="hasCoaches">
-        <coach-item
-          v-for="coach in filteredCoaches"
-          :key="coach.id"
-          :id="coach.id"
-          :firstName="coach.firstName"
-          :lastName="coach.lastName"
-          :areas="coach.areas"
-          :rate="coach.hourlyRate"
-          :description="coach.description"
-        ></coach-item>
-        <!-- <li v-for="coach in filteredCoaches" :key="coach.id">
+  <div>
+    <base-dialog :show="!!error" title="An error occured" @close="handleError">
+      <p>{{ error }}</p>
+    </base-dialog>
+    <section>
+      <coach-filter @change-filter="setFilters"></coach-filter>
+    </section>
+    <section>
+      <base-card>
+        <div class="controls">
+          <!-- <button>Refresh</button> -->
+          <base-button mode="outline" @click="loadCoaches(true)"
+            >Refresh</base-button
+          >
+          <!-- <router-link to="register">Register as Coach</router-link> -->
+          <base-button link to="/register" v-if="!isCoach && !isLoading"
+            >Register as Coach</base-button
+          >
+        </div>
+        <div v-if="isLoading">
+          <base-spinner></base-spinner>
+        </div>
+        <ul v-else-if="hasCoaches">
+          <coach-item
+            v-for="coach in filteredCoaches"
+            :key="coach.id"
+            :id="coach.id"
+            :firstName="coach.firstName"
+            :lastName="coach.lastName"
+            :areas="coach.areas"
+            :rate="coach.hourlyRate"
+            :description="coach.description"
+          ></coach-item>
+          <!-- <li v-for="coach in filteredCoaches" :key="coach.id">
         {{ coach.firstName }}
       </li> -->
-      </ul>
-      <p v-else>No coaches founded!</p>
-    </base-card>
-  </section>
+        </ul>
+        <p v-else>No coaches founded!</p>
+      </base-card>
+    </section>
+  </div>
 </template>
 
 <script>
