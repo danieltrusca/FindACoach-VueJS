@@ -13,5 +13,8 @@ export default {
     //   }
     return !!state.token;
     // !!transform data in boolean: true if it is a value, false fornot value or null
+  },
+  didAutoLogout(state) {
+    return state.didAutoLogout;
   }
 };
