@@ -14,7 +14,11 @@
             >Refresh</base-button
           >
           <!-- <router-link to="register">Register as Coach</router-link> -->
-          <base-button link to="/register" v-if="!isCoach && !isLoading"
+          <base-button link to="/auth" v-if="!isLoggedIn">Login</base-button>
+          <base-button
+            link
+            to="/register"
+            v-if="!isCoach && !isLoading && isLoggedIn"
             >Register as Coach</base-button
           >
         </div>
@@ -63,6 +67,9 @@ export default {
     };
   },
   computed: {
+    isLoggedIn() {
+      return this.$store.getters.isAuthenticated;
+    },
     filteredCoaches() {
       const coaches = this.$store.getters['coaches/coaches'];
       return coaches.filter(coach => {
