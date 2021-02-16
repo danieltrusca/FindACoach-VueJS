@@ -14,7 +14,9 @@
             >Refresh</base-button
           >
           <!-- <router-link to="register">Register as Coach</router-link> -->
-          <base-button link to="/auth" v-if="!isLoggedIn">Login</base-button>
+          <base-button link to="/auth?redirect=register" v-if="!isLoggedIn"
+            >Login To Register As Coach</base-button
+          >
           <base-button
             link
             to="/register"
